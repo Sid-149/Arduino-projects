@@ -7,9 +7,6 @@
    Digital Pin 4: Red LED. 
    Digital Pin 5: Green LED. 
    
-   Update: Nov 09 09: Fixed red/green LED error in the comments. Code is unchanged. 
-   Update: Nov 20 09: Updated handling of programming button to make it more intuitive, give better feedback.
-   Update: Jan 20 10: Removed the "pinMode(knockSensor, OUTPUT);" line since it makes no sense and doesn't do anything.
  */
  
 // Pin definitions
