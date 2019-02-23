@@ -1,0 +1,70 @@
+long duration;
+int udm[40];
+int code[40];
+int distance;
+int thresholdLow=5;
+int thresholdHigh=50;
+int error=10;
+int i;
+int pressButton;
+const int trigPin=11;
+const int echoPin=12;
+
+
+void setup()
+{
+   pinMode(trigPin,OUTPUT);
+   pinMode(echoPin,INPUT);
+   Serial.begin(9600);
+}
+
+ 
+void loop()
+{
+  
+}
+                       
+void recordGesture()
+{
+  
+  i=0; 
+  while(i<40)
+  {
+    
+    digitalWrite(trigPin,LOW);
+    delayMicroseconds(2);
+
+    digitalWrite(trigPin,HIGH);
+    delayMicroseconds(10);
+    digitalWrite(trigPin,LOW);
+
+    duration= pulseIn(echoPin,HIGH);
+    distance= duration*0.034/2;
+  if(distance>=thresholdLow && distance<=thresholdHigh)
+  {
+    udm[i]=distance;
+    i++;
+    delay(25);
+    Serial.println(distance);
+  }
+ }
+if(pressButton==true)
+  {
+  savePass();  
+  }
+else
+{
+  validate();
+}
+}
+void savePass()
+{
+  while(i<=40)
+  code[i]=udm[i];
+
+}
+void validate()
+{
+  
+
+}
